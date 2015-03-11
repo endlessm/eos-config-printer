@@ -1,0 +1,9 @@
+[Unit]
+Description=Endless Config Printing D-Bus service
+
+[Service]
+Type=dbus
+BusName=com.endlessm.Config.Printing
+ExecStart=@bindir@/eos-config-printer
+User=root
+

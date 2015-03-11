@@ -1,0 +1,47 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+
+<!-- Copyright 2015 Endless Mobile, Inc. -->
+
+<node>
+  <!--
+      com.endlessm.Config.Printing:
+      @short_description: The EOS Config Printing service
+
+      This is the interface you use to talk with the EOS Config Printing service.
+  -->
+  <interface name="com.endlessm.Config.Printing">
+
+    <!--
+	InstallDriver:
+
+        Installs a printer driver in the system by passing the
+        required parameters depending on the type of the driver.
+
+        Parameters:
+         * "Type", integer (Use 1 for OpenPrinting supported drivers)
+         * "Args", array of strings (depending on "Type")
+
+        Note: At present, only OpenPrinting.org supported drivers are
+        supported, meaning that the parameters passed will be always
+        of the following form:
+
+         * "Type" will always be 1 (OpenPrinting drivers type)
+         * "Args" will be a 2-element array of strings, as follows:
+          - Args[0]: URI to download the driver package from its APT repository
+          - Args[1]: fingerprint of the GPG key used to sign the APT repository
+
+        Returns a list of strings with the absolute paths to the PPD
+        files if the installation succeeded, or a GError with a
+        descriptive error message otherwise.
+    -->
+    <method name="InstallDriver" >
+      <arg type="u" direction="in" />
+      <arg type="as" direction="in" />
+      <arg type="as" direction="out">
+        <annotation name="org.freedesktop.DBus.GLib.ReturnVal" value="error" />
+      </arg>
+    </method>
+
+  </interface>
+</node>
