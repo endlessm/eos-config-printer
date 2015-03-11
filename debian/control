@@ -1,0 +1,25 @@
+Source: eos-config-printer
+Section: admin
+Priority: standard
+Maintainer: Endless Mobile <maintainers@endlessm.com>
+Build-Depends: cdbs (>= 0.4.43),
+               debhelper (>= 5.0.37.2),
+               dh-autoreconf,
+               pkg-config (>= 0.24),
+               python3-all-dev (>= 3.0.0),
+               systemd
+Standards-Version: 3.9.2
+Homepage: http://www.endlessm.com
+
+Package: eos-config-printer
+Architecture: all
+Depends: python3-dbus,
+         python3-gnupg,
+         python3-requests,
+         gir1.2-glib-2.0,
+         gir1.2-polkit-1.0
+Description: D-Bus service for installing printer drivers in EOS
+ This package provides a D-Bus activatable service to install
+ different types of printer drivers in EOS, automatically.
+ .
+ At the moment, it only supports drivers from OpenPrinting.org.
