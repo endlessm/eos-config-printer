@@ -24,5 +24,8 @@
 TRUSTED_KEYRING_FILE='/var/lib/eos-config-printer/trusted.gpg'
 TRUSTED_KEY_SERVER='keyserver.ubuntu.com'
 
+# Directory where CUPS will look for PPD files installed through this service
+CUPS_VISIBLE_PPD_DIR = '/var/lib/cups/ppd/eos-config-printer'
+
 # Directory used by default for downloading temporary files
 TEMPORARY_DIR = '/tmp/eos-config-printer'
