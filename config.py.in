@@ -20,5 +20,9 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
+# Used for validating packages from signed repositories
+TRUSTED_KEYRING_FILE='@localstatedir@/@LIBDIRNAME@/@PACKAGE@/trusted.gpg'
+TRUSTED_KEY_SERVER='keyserver.ubuntu.com'
+
 # Directory used by default for downloading temporary files
 TEMPORARY_DIR = '@localstatedir@/@TMPDIRNAME@/@PACKAGE@'
