@@ -24,5 +24,8 @@
 TRUSTED_KEYRING_FILE='@localstatedir@/@LIBDIRNAME@/@PACKAGE@/trusted.gpg'
 TRUSTED_KEY_SERVER='keyserver.ubuntu.com'
 
+# Directory where CUPS will look for PPD files installed through this service
+CUPS_VISIBLE_PPD_DIR = '@localstatedir@/@LIBDIRNAME@/@PACKAGE@/@PPDDIRNAME@'
+
 # Directory used by default for downloading temporary files
 TEMPORARY_DIR = '@localstatedir@/@TMPDIRNAME@/@PACKAGE@'
