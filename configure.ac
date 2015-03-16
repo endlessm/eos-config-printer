@@ -16,6 +16,13 @@ AC_SUBST(TMPDIRNAME)
 
 PKG_PROG_PKG_CONFIG
 
+# For Polkit
+PRINTERS_ADMIN_GROUP=lpadmin
+AC_SUBST(PRINTERS_ADMIN_GROUP)
+
+# For systemd
+AC_SUBST([systemdsystemunitdir], [$($PKG_CONFIG --variable=systemdsystemunitdir systemd)])
+
 AC_CONFIG_FILES([
 Makefile
 data/eos-config-printer
