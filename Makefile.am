@@ -68,6 +68,7 @@ EXTRA_DIST = \
 	autogen.sh \
 	config.py.in \
 	README.md \
+	debian \
 	$(NULL)
 
 CLEANFILES = \
