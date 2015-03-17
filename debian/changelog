@@ -1,0 +1,5 @@
+eos-config-printer (1.0.0) eos; urgency=low
+
+  * Initial release. (Closes: [endlessm/eos-shell#3971])
+
+ -- Mario Sanchez Prada <mario@endlessm.com>  Wed, 11 Mar 2015 15:11:58 +0000

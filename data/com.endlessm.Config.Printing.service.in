@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=com.endlessm.Config.Printing
+Exec=@bindir@/eos-config-printer
+User=root

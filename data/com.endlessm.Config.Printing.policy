@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1.0/policyconfig.dtd">
+<policyconfig>
+
+  <vendor>Endless Config Printing</vendor>
+  <vendor_url>https://endlessm.com/</vendor_url>
+  <icon_name>printer</icon_name>
+
+  <action id="com.endlessm.Config.Printing.InstallDriver">
+    <description>Install printer driver</description>
+    <message>Authentication is required to install printer drivers</message>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+  </action>
+
+</policyconfig>

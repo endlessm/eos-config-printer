@@ -1,0 +1,7 @@
+polkit.addRule(function(action, subject) {
+    if (action.id.indexOf("com.endlessm.Config.Printing.") == 0 &&
+        subject.active == true && subject.local == true &&
+        subject.isInGroup("@PRINTERS_ADMIN_GROUP@")) {
+        return polkit.Result.YES;
+    }
+});
