@@ -18,9 +18,19 @@ Depends: python3-dbus,
          python3-gnupg,
          python3-requests,
          gir1.2-glib-2.0,
-         gir1.2-polkit-1.0
+         gir1.2-polkit-1.0,
+         eos-config-printer-deps (= ${source:Version})
 Description: D-Bus service for installing printer drivers in EOS
  This package provides a D-Bus activatable service to install
  different types of printer drivers in EOS, automatically.
  .
  At the moment, it only supports drivers from OpenPrinting.org.
+
+Package: eos-config-printer-deps
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: libjpeg62
+Description: printer drivers metapackage
+ This metapackage recommends packages that might be needed for
+ some drivers to work properly (e.g. some Epson drivers), and
+ which can be individually removed.
