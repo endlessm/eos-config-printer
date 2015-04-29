@@ -144,10 +144,17 @@ class PrinterDriverOpenPrinting(PrinterDriver):
             self._installedPPDs.extend(ppd_files)
 
     def _ensureTemporaryDir(self):
-        if self._temporary_dir is not None and os.path.exists(self._temporary_dir):
-            return
-
-        os.makedirs(config.TEMPORARY_DIR, exist_ok=True)
+        if os.path.exists(config.TEMPORARY_DIR):
+            try:
+                # Make sure there are no leftovers from previous installation attempts.
+                dircontents = os.listdir(config.TEMPORARY_DIR)
+                for path in dircontents:
+                    abs_path = os.path.join(config.TEMPORARY_DIR, path)
+                    shutil.rmtree(abs_path, ignore_errors=True)
+            except OSError as e:
+                raise GLib.GError("Error listing contents of directory: %s" % repr(e))
+        else:
+            os.makedirs(config.TEMPORARY_DIR, exist_ok=True)
 
         try:
             self._temporary_dir = tempfile.mkdtemp(dir=config.TEMPORARY_DIR)
