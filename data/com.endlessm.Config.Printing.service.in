@@ -2,3 +2,4 @@
 Name=com.endlessm.Config.Printing
 Exec=@bindir@/eos-config-printer
 User=root
+SystemdService=eos-config-printer.service

@@ -1,6 +1,6 @@
 etc/dbus-1/system.d
+lib/systemd
 usr/share/eos-config-printer
-usr/share/lib/systemd
 usr/share/dbus-1
 usr/share/polkit-1
 usr/lib/tmpfiles.d

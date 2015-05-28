@@ -21,7 +21,17 @@ PRINTERS_ADMIN_GROUP=lpadmin
 AC_SUBST(PRINTERS_ADMIN_GROUP)
 
 # For systemd
-AC_SUBST([systemdsystemunitdir], [$($PKG_CONFIG --variable=systemdsystemunitdir systemd)])
+PKG_CHECK_EXISTS([systemd], [],
+	[AC_MSG_ERROR([systemd required to build $PACKAGE_NAME])])
+
+AC_ARG_WITH([systemdunitdir],
+	[AS_HELP_STRING([--with-systemdunitdir],
+			[systemd unit file directory])],
+	[systemdunitdir=$withval],
+	[systemdunitdir=`$PKG_CONFIG --variable=systemdsystemunitdir systemd`])
+AS_IF([test "x$systemdunitdir" = x],
+	[AC_MSG_ERROR([no path for systemd unit directory])])
+AC_SUBST([systemdunitdir])
 
 AC_CONFIG_FILES([
 Makefile
