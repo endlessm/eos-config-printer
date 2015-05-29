@@ -33,12 +33,16 @@ $(dbussystemservices_DATA): $(dbussystemservices_in_files)
 	@sed -e "s|\@bindir\@|$(bindir)|" $< > $@
 
 # systemd files for D-Bus activated service
-systemdservice_in_files = data/eos-config-printer.service.in
-systemdservice_DATA = $(systemdservice_in_files:.service.in=.service)
-systemdservicedir = $(datadir)/$(systemdsystemunitdir)
+systemdunit_in_files = data/eos-config-printer.service.in
+systemdunit_DATA = $(systemdunit_in_files:.service.in=.service)
 
-$(systemdservice_DATA): $(systemdservice_in_files) $(systemdsystemunitdir)
+$(systemdunit_DATA): $(systemdunit_in_files) $(systemdsystemunitdir)
 	@sed -e "s|\@bindir\@|$(bindir)|" $< > $@
+
+# Set systemd unit directory that follows $prefix too for distcheck.
+AM_DISTCHECK_CONFIGURE_FLAGS = \
+	--with-systemdunitdir='$${libdir}/systemd/system' \
+	$(NULL)
 
 # systemd tmpfiles.d
 tmpfilesdir = $(prefix)/lib/tmpfiles.d
@@ -63,7 +67,7 @@ EXTRA_DIST = \
 	$(dbusinterfaces_DATA) \
 	$(dbussystemservices_in_files) \
 	$(polkit_rules_in_files) \
-	$(systemdservice_in_files) \
+	$(systemdunit_in_files) \
 	$(tmpfiles_DATA) \
 	autogen.sh \
 	config.py.in \
@@ -73,7 +77,7 @@ EXTRA_DIST = \
 
 CLEANFILES = \
 	$(dbussystemservices_DATA) \
-	$(systemdservice_DATA) \
+	$(systemdunit_DATA) \
 	$(polkit_rules_DATA) \
 	config.py \
 	$(NULL)
