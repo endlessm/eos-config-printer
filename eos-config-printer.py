@@ -130,7 +130,7 @@ class PrinterDriverOpenPrinting(PrinterDriver):
 
         # Move the driver into the desired location, search for the directory
         # containing the PPD files and create symlinks pointing there from the
-        # /var/cups/ppd/openprinting directory, so that CUPS can find them.
+        # /var/lib/eos-config-printer/ppd  directory, so that CUPS can find them.
         # Also, fill the self._installedPPDs list to report to the caller.
         moved_dirs = self._deployDriverDirectories(extraction_dir)
         self._installedPPDs = []
