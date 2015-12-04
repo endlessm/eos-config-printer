@@ -16,7 +16,6 @@ Package: eos-config-printer
 Architecture: all
 Depends: python3-dbus,
          python3-gnupg,
-         python3-requests,
          gir1.2-glib-2.0,
          gir1.2-polkit-1.0,
          eos-config-printer-deps (= ${source:Version})
