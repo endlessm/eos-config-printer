@@ -1,13 +1,16 @@
 bin_SCRIPTS = data/eos-config-printer
 
-nobase_pkgdata_SCRIPTS = eos-config-printer.py
-
-nobase_pkgdata_DATA = \
-	config.py \
+extra_modules = \
 	debug.py \
 	killtimer.py \
 	pkgvalidator.py \
 	utils.py
+
+nobase_pkgdata_DATA = \
+	config.py \
+	$(extra_modules)
+
+nobase_pkgdata_SCRIPTS = eos-config-printer.py
 
 config.py: config.py.in Makefile
 	sed \
@@ -61,8 +64,8 @@ dist_polkit_policy_DATA = data/com.endlessm.Config.Printing.policy
 
 EXTRA_DIST = \
 	$(bin_SCRIPTS) \
+	$(extra_modules) \
 	$(nobase_pkgdata_SCRIPTS) \
-	$(nobase_pkgdata_DATA) \
 	$(dbus_DATA) \
 	$(dbusinterfaces_DATA) \
 	$(dbussystemservices_in_files) \
