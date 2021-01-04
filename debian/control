@@ -5,7 +5,6 @@ Maintainer: Endless Mobile <maintainers@endlessm.com>
 Build-Depends: cdbs (>= 0.4.43),
                debhelper (>= 5.0.37.2),
                dh-autoreconf,
-               dh-systemd,
                pkg-config (>= 0.24),
                python3-all-dev (>= 3.0.0),
                systemd
